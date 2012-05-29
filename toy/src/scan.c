@@ -2,6 +2,8 @@
 #include <ctype.h>
 #include "globals.h"
 #include "scan.h"
+
+
 /* a buffer for read characters*/
 static const int BUF_SIZE = 256;
 static char buf[BUF_SIZE];
@@ -12,8 +14,9 @@ static int getNextChar(FILE* f){
   if (bufPos < bufLength){
     return buf[bufPos++];
   } else {
-    if (fread(buf, 1, BUF_SIZE, f) != NULL) {
-      bufLength = strlen(buf);
+    bufLength = fread(buf, 1, BUF_SIZE, f);
+    if (bufLength > 0) {
+      bufPos = 0;
       return buf[bufPos++];
     } else {
       return EOF;
@@ -25,7 +28,8 @@ static int unGetChar() {
   bufPos--;
   return bufPos;
 }
-static int TokenType endProcess(Token& token, int ch, TokenType type) {
+
+static int endProcess(Token& token, int ch, TokenType type) {
   token.str[token.length++] = (char)ch;
   token.type = type;
   return -1;
