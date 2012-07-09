@@ -18,14 +18,16 @@ if __name__ == '__main__':
 
   #draw a line
   x = np.arange(-4, 10, 0.1)
-  y = x * (-1) + 5
+  y = x * (-1) + 6
   plt.plot(x, y, "g")
 
   #text
   plt.xlabel("x")
   plt.ylabel("y")
   plt.title("logistic regression")
-  plt.text(-2, 7, "discrimitive line")
+  plt.text(-1, 7, "y=-x+6")
+  plt.text(0, -3, "$\mu=1, \sigma=1$")
+  plt.text(5, 2, "$\mu=5, \sigma=1$")
   plt.annotate("center", xy=(1, 1), xytext = (1, -4), \
     arrowprops=dict(facecolor='black', shrink=0.01, width = 1))
 
