@@ -1343,7 +1343,8 @@ if (((*(BARREL)->method->wv_normalize_weights)))	\
 #include <bow/kl.h>
 #include <bow/em.h>
 #include <bow/knn.h>
-struct argp_child;		/* forward declare this type */
+//struct argp_child;		/* forward declare this type */  //anotate by GH
+#include "argp.h" //add by GH
 
 /* Associate method M with the string NAME, so the method structure
    can be retrieved later with BOW_METHOD_AT_NAME().  Set the group
@@ -2126,6 +2127,7 @@ void bow_em_perturb_weights (bow_barrel *doc_barrel, bow_barrel *vpc_barrel);
 void bow_argp_add_child (struct argp_child *child);
 
 extern struct argp_child bow_argp_children[];
+//extern struct argp_child* bow_argp_children;
 
 /* Global variables whose value is set by bow_argp functions, but
    which must be examined by some other function (called later) in
