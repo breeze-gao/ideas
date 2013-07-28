@@ -1,5 +1,0 @@
-This should do the trick:
-
-   ./configure --prefix=/usr/local
-   make
-   make install
